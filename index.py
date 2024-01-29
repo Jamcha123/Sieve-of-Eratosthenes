@@ -1,12 +1,17 @@
-myList = [int(i) for i in range(2, 21)]
-targets = []
-for x in range(len(myList)):
-    if myList[x] not in targets:
-        for y in range(len(myList)):
-            if myList[y] % myList[x] == 0 and x != y:
-                targets.append(myList[y])
-target = []
-for x in range(len(myList)):
-    if myList[x] not in targets:
-        target.append(myList[x])
-print(target)
+targets = [int(i) for i in range(2, 12)]
+
+def func1(targets):
+    return targets
+
+notPrimes = []
+for x in range(len(targets)):
+    if targets[x] not in notPrimes:
+        for y in range(len(targets)):
+            if targets[y] % targets[x] == 0 and x != y and targets[y] not in notPrimes:
+                notPrimes.append(targets[y])
+primes = []
+for x in range(len(targets)):
+    if targets[x] not in notPrimes:
+        primes.append(targets[x])
+print("prime numbers are ", end="")
+print(list(map(func1, primes)))
